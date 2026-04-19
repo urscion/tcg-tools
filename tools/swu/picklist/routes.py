@@ -1,27 +1,12 @@
-#!/usr/bin/env python3
-
-# Copyright 2025, Peter Clay (pwclay@gmail.com), All Rights Reserved
-
-"""SWU Tools
-
-TODO:
-- Add sort by button (quantity, name, set, rarity, aspect, type)
-  - with asc/dsc
-- toggle to include sideboard
-  - toggle to include column if Deck or Sideboard or Maybeboard (only show if sideboard is enabled)
-- toggle to include subtitle column
-"""
-
 import json
 from dataclasses import dataclass
 
-from flask import Flask, render_template, request
+from flask import render_template, request
 
 from databases.swu.card import SwuCard
 from databases.swu.database import SwuDatabase as SwuDb
 from parsers import DeckParser, SWUDBApiParser, SWUDBJsonParser
-
-app = Flask(__name__)
+from tools.swu.picklist import swu_picklist_bp
 
 swudb = SwuDb()
 
@@ -134,7 +119,7 @@ def to_picklist(parser: DeckParser, options: DisplayOptions) -> str:
     return output
 
 
-@app.route("/", methods=["GET", "POST"])
+@swu_picklist_bp.route("/", methods=["GET", "POST"])
 def index():
     converted_text = ""
     if request.method == "POST":
@@ -156,12 +141,9 @@ def index():
                 parser = SWUDBApiParser.from_url(input_swudb_url)
             else:
                 # Do nothing
-                return render_template("index.html")
+                return render_template("swu/picklist/index.html")
         except Exception:
-            return render_template("index.html")
+            return render_template("swu/picklist/index.html")
 
         converted_text = to_picklist(parser, display_options)
-    return render_template("index.html", converted_text=converted_text)
-
-
-# app.run() not needed as on PythonAnywhere as it's handled by their server.
+    return render_template("swu/picklist/index.html", converted_text=converted_text)

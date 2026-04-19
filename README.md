@@ -15,7 +15,7 @@ Apps, scripts, etc.
 #### SWU Picklist
 
 ```bash
-flask --app apps/swu_picklist/app run
+uv run -- flask run
 ```
 
 ### Databases

@@ -46,7 +46,6 @@ class SwuDatabase(Database[SwuCard]):
             if "Set" in card:
                 set_code = card["Set"].upper()
                 if set_code not in set_codes:
-                    print(f"Found set code {set_code} from online database.")
                     set_codes.add(set_code)
 
         return set_codes
@@ -62,7 +61,6 @@ class SwuDatabase(Database[SwuCard]):
                 continue
 
             # Create the cache
-            print(f"Building cache for set {set_code}...")
             response = requests.get(f"{SET_CARDS_BASE_URL}/{set_code}")
             response.raise_for_status()
             set_cache_file.write_text(response.text)

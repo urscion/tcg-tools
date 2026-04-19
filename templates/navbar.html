@@ -1,0 +1,22 @@
+<nav id="sidebar">
+  <div class="px-3 pb-3 mb-2 border-bottom border-secondary">
+    <span class="text-white fw-semibold">TCG Tools</span>
+  </div>
+  {% set nav = [('SWU', 'swu', [('Picklist', 'picklist')])] %}
+  {% for
+    tcg_name, tcg_id, tcg_tool in nav %}
+    <div class="mb-1">
+      <button class="game-btn"
+              data-bs-toggle="collapse"
+              data-bs-target="#{{ tcg_id }}"
+              aria-expanded="false"
+              aria-controls="{{ tcg_id }}">{{ tcg_name }}</button>
+      <div class="collapse show" id="{{ tcg_id }}">
+        {% for tool_name, tool_route in tcg_tool %}
+          <a href="{{ url_for(tcg_id + '.' + tool_route + '.index') }}"
+             class="tool-link active">{{ tool_name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</nav>
