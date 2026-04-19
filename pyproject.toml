@@ -1,0 +1,37 @@
+[project]
+name = "tcg-tools"
+version = "0.0.1"
+description = "Trading Card Game (TCG) Tools"
+authors = [
+    { name = "Peter Clay", email = "pwclay@gmail.com" }
+]
+requires-python = ">=3.12, <3.13"
+dependencies = [
+    "typed-argument-parser>=1.7.0",
+    "texttable==1.6.2",
+    "cryptography>=3.0",
+    "tyro>=0.9.5",
+    "flask>=3.1.2",
+    "requests>=2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+# private-pypi is available as a supplemental index
+# Map specific packages to it if needed, e.g.:
+# some-private-package = { index = "private-pypi" }
+
+[[tool.uv.index]]
+name = "private-pypi"
+url = "http://localhost"
