@@ -3,8 +3,5 @@
         "**/.git": true,
         "**/__pycache__": true,
     },
-    "editor.formatOnSave": true,
-    "[html]": {
-        "editor.defaultFormatter": "monosans.djlint"
-    }
+    "editor.formatOnSave": true
 }
