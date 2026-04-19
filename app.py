@@ -6,6 +6,7 @@
 
 from flask import Flask, render_template
 
+from tools.mtg import mtg_bp
 from tools.swu import swu_bp
 
 app = Flask(__name__)
@@ -17,3 +18,4 @@ def index() -> str:
 
 
 app.register_blueprint(swu_bp, url_prefix="/swu")
+app.register_blueprint(mtg_bp, url_prefix="/mtg")

@@ -13,6 +13,7 @@ dependencies = [
     "tyro>=0.9.5",
     "flask>=3.1.2",
     "requests>=2.32.5",
+    "scrython>=2.0.3",
 ]
 
 [dependency-groups]

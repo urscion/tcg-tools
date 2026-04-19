@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}MTG — Card Names{% endblock %}
+{% block
+    content %}
+    <h3 class="mb-4">Magic: The Gathering - Card Names</h3>
+    <form method="POST">
+        <input type="hidden" name="output" value="csv">
+        <button type="submit" class="btn btn-primary">CSV</button>
+    </form>
+{% endblock %}

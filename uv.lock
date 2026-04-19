@@ -373,6 +373,15 @@ wheels = [
 ]
 
 [[package]]
+name = "scrython"
+version = "2.0.3"
+source = { registry = "http://localhost/" }
+sdist = { url = "https://files.pythonhosted.org/packages/f7/38/29063ad500e402b8faaf67130976b142e3bba578140c4eeaf1617951ccba/scrython-2.0.3.tar.gz", hash = "sha256:fd62d110dc6705637ff66840472e29b24e8f68f8f27b1743f67125a736348d51", size = 68058, upload-time = "2026-04-07T03:25:59.788Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3e/2b/b00a84e1a719e2359bc2769af8b35c18f49d32617114c973c8579b1d722f/scrython-2.0.3-py3-none-any.whl", hash = "sha256:a0885e62fe6134311586b99d455dcc3ab8c658b68ca7ec9394d65937c5ac7e1a", size = 47550, upload-time = "2026-04-07T03:25:58.581Z" },
+]
+
+[[package]]
 name = "six"
 version = "1.17.0"
 source = { registry = "http://localhost/" }
@@ -389,6 +398,7 @@ dependencies = [
     { name = "cryptography" },
     { name = "flask" },
     { name = "requests" },
+    { name = "scrython" },
     { name = "texttable" },
     { name = "typed-argument-parser" },
     { name = "tyro" },
@@ -405,6 +415,7 @@ requires-dist = [
     { name = "cryptography", specifier = ">=3.0" },
     { name = "flask", specifier = ">=3.1.2" },
     { name = "requests", specifier = ">=2.32.5" },
+    { name = "scrython", specifier = ">=2.0.3" },
     { name = "texttable", specifier = "==1.6.2" },
     { name = "typed-argument-parser", specifier = ">=1.7.0" },
     { name = "tyro", specifier = ">=0.9.5" },
